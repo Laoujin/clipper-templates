@@ -20,3 +20,7 @@ Specific Websites
 - [Redfin](/templates/redfin-clipper.json)
 - [Wikipedia](/templates/wikipedia-clipper.json)
 - [Youtube](/templates/youtube-clipper.json)
+
+## Other Repos
+
+- [Fred-Vatin/Web-Clipper-Templates](https://github.com/Fred-Vatin/Web-Clipper-Templates)
