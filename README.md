@@ -23,4 +23,6 @@ Specific Websites
 
 ## Other Repos
 
+- [obsidian-community/web-clipper-templates](https://github.com/obsidian-community/web-clipper-templates)
+- [esodesod/obsidian-web-clipper-templates](https://github.com/esodesod/obsidian-web-clipper-templates)
 - [Fred-Vatin/Web-Clipper-Templates](https://github.com/Fred-Vatin/Web-Clipper-Templates)
