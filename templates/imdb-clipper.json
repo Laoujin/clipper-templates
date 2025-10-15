@@ -2,9 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "IMDB",
 	"behavior": "create",
-	"noteNameFormat": "{{schema:name}}",
-	"path": "References",
-	"noteContentFormat": "",
+	"noteContentFormat": "{{schema:url|link:\"Open IMDB\"}}\n\n{{schema:image|image:\"Poster\"}}\n",
 	"properties": [
 		{
 			"name": "categories",
@@ -37,11 +35,6 @@
 			"type": "multitext"
 		},
 		{
-			"name": "cover",
-			"value": "{{schema:image}}",
-			"type": "text"
-		},
-		{
 			"name": "plot",
 			"value": "{{schema:description}}",
 			"type": "text"
@@ -58,11 +51,13 @@
 		},
 		{
 			"name": "tags",
-			"value": "movies, review, to-watch",
+			"value": "movie",
 			"type": "multitext"
 		}
 	],
 	"triggers": [
 		"/^https:\\/\\/www\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/"
-	]
+	],
+	"noteNameFormat": "{{schema:name}}",
+	"path": "References"
 }
