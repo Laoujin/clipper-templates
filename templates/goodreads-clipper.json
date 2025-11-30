@@ -4,7 +4,7 @@
 	"behavior": "create",
 	"noteNameFormat": "{{selector:.BookPageTitleSection__title h1}}",
 	"path": "References",
-	"noteContentFormat": "{{selector:.BookPageMetadataSection__description}}",
+	"noteContentFormat": "{{schema:url|link:\"Open Goodreads\"}}\n\n{{selector:.BookCover__image img?src|first|image:\"Cover\"}}\n\n{{selector:.BookPageMetadataSection__description}}",
 	"properties": [
         {
             "name": "categories",
@@ -40,6 +40,11 @@
 			"name": "scoreGr",
 			"value": "{{selector:.RatingStatistics__rating|first|round:2}}",
 			"type": "number"
+		},
+		{
+			"name": "ratingCount",
+			"value": "{{selector:[data-testid=ratingsCount]|first}}",
+			"type": "text"
 		},
 		{
 			"name": "rating",
