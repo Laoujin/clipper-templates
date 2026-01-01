@@ -1,0 +1,68 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "DagelijkseKost",
+	"behavior": "create",
+	"noteContentFormat": "# Directions\n{{selectorHtml:[data-testid=\"instructions-web\"]|first|replace:\"/<h3[^>]*>([^<]+)<\\/h3>/g\":\"## $1\\n\"|replace:\"/<span[^>]*MuiTypography-bodySmall[^>]*>([^<]+)<\\/span>/g\":\"<small>$1</small>\\n\"|replace:\"/<span[^>]*MuiTypography-titleLarge[^>]*>([^<]+)<\\/span>/g\":\"\"|replace:\"/<span[^>]*MuiTypography-bodyLarge[^>]*>([^<]+)<\\/span>/g\":\"$1\\n\\n\"|strip_tags}}\n\n# Ingredients\n{{selectorHtml:#ingredients-tabpanel-0 [data-testid=\"recipe-ingredient\"]|replace:\"/MuiTypography-bodyLarge[^>]*>([^<]+)</span>/g\":\"MuiTypography-bodyLarge\\\">$1: </span>\"|strip_tags|list}}\n\n# Notes\n- \n\n# How it looks\n{{meta:property:og:image|image:\"Poster\"}}\n",
+	"properties": [
+		{
+			"name": "categories",
+			"value": "[[Recipes]]",
+			"type": "multitext"
+		},
+		{
+			"name": "type",
+			"value": "{{selector:svg[data-testid=\\\"svg-icon-cooking_pot_outline\\\"]+div span.MuiTypography-titleMedium}}",
+			"type": "multitext"
+		},
+		{
+			"name": "author",
+			"value": "Meus",
+			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "multitext"
+		},
+		{
+			"name": "description",
+			"value": "{{meta:name:description}}",
+			"type": "text"
+		},
+		{
+			"name": "ingredients",
+			"value": "{{selector:svg[data-testid=\\\"svg-icon-basket\\\"]+div span.MuiTypography-titleMedium}}",
+			"type": "text"
+		},
+		{
+			"name": "time",
+			"value": "{{selector:span[data-testid=\\\"mui-icon-access_time\\\"]+div span.MuiTypography-titleMedium}}",
+			"type": "text"
+		},
+		{
+			"name": "rating",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "score",
+			"value": "{{selector:span[data-testid=\\\"mui-icon-thumb_up_alt\\\"]+div span.MuiTypography-titleMedium}}",
+			"type": "text"
+		},
+		{
+			"name": "likes",
+			"value": "{{selector:svg[data-testid=\\\"svg-icon-hearts_outline\\\"]+div span.MuiTypography-titleMedium|replace:\\\"K\\\":\\\"\\\"|calc:\\\"*1000\\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		}
+	],
+	"triggers": [
+		"https://dagelijksekost.vrt.be/gerechten/"
+	],
+	"noteNameFormat": "{{title}}",
+	"path": "Food"
+}
