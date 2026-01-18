@@ -2,19 +2,27 @@
 	"schemaVersion": "0.1.0",
 	"name": "Goodreads",
 	"behavior": "create",
-	"noteNameFormat": "{{selector:.BookPageTitleSection__title h1}}",
-	"path": "References",
-	"noteContentFormat": "{{schema:url|link:\"Open Goodreads\"}}\n\n{{selector:.BookCover__image img?src|first|image:\"Cover\"}}\n\n{{selector:.BookPageMetadataSection__description}}",
+	"noteContentFormat": "\n# Summary\n{{selector:.BookPageMetadataSection__description|replace:\"/Show more$/\":\"\"}}\n\n[Open Goodreads]({{url}})\n\n{{selector:.BookCover__image img?src|first|image:\"Cover\"}}",
 	"properties": [
-        {
-            "name": "categories",
-            "value": "[[Books]]",
-            "type": "multitext"
-        },
+		{
+			"name": "categories",
+			"value": "[[Books]]",
+			"type": "multitext"
+		},
 		{
 			"name": "title",
 			"value": "{{selector:.BookPageTitleSection__title h1}}",
 			"type": "text"
+		},
+		{
+			"name": "series",
+			"value": "{{selector:.BookPageTitleSection__title>h3|split:\\\"#\\\"|first|trim|wikilink}}",
+			"type": "text"
+		},
+		{
+			"name": "serierNr",
+			"value": "{{selector:.BookPageTitleSection__title>h3|split:\\\"#\\\"|last}}",
+			"type": "number"
 		},
 		{
 			"name": "author",
@@ -48,22 +56,7 @@
 		},
 		{
 			"name": "rating",
-			"value": "",
-			"type": "number"
-		},
-		{
-			"name": "cover",
-			"value": "{{selector:.BookCover__image img?src|first}}",
-			"type": "text"
-		},
-		{
-			"name": "isbn",
-			"value": "{{selector:.DescList|split:\\\"ISBN\\\"|slice:1,2|split:\\\" \\\"|first}}",
-			"type": "text"
-		},
-		{
-			"name": "language",
-			"value": "{{selector:.DescList|split:\\\"Language\\\"|last}}",
+			"value": "{{selector:.BookRatingStars>span?aria-label|first|split:\\\" \\\"|nth:2|first|replace:\\\"0\\\",\\\"\\\"}}",
 			"type": "text"
 		},
 		{
@@ -75,9 +68,16 @@
 			"name": "tags",
 			"value": "books, to-read",
 			"type": "multitext"
+		},
+		{
+			"name": "last",
+			"value": "",
+			"type": "date"
 		}
 	],
 	"triggers": [
 		"https://www.goodreads.com/book/"
-	]
+	],
+	"noteNameFormat": "{{selector:.BookPageTitleSection__title h1}}",
+	"path": "References"
 }

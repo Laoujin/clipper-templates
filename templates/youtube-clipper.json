@@ -2,8 +2,6 @@
 	"schemaVersion": "0.1.0",
 	"name": "YouTube",
 	"behavior": "create",
-	"noteNameFormat": "{{schema:author}} – {{schema:name}}",
-	"path": "Clippings",
 	"noteContentFormat": "![{{schema:name}}]({{url}})",
 	"properties": [
 		{
@@ -34,15 +32,17 @@
 		{
 			"name": "created",
 			"value": "{{date}}",
-			"type": "text"
+			"type": "date"
 		},
 		{
 			"name": "tags",
 			"value": "videos",
-			"type": "text"
+			"type": "multitext"
 		}
 	],
 	"triggers": [
 		"https://www.youtube.com/watch?v="
-	]
+	],
+	"noteNameFormat": "{{schema:author}} – {{schema:name}}",
+	"path": "Clippings"
 }

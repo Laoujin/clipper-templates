@@ -7,22 +7,22 @@
 		{
 			"name": "created",
 			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
-			"type": "datetime"
+			"type": "date"
 		},
 		{
 			"name": "reviewed",
 			"value": "",
-			"type": "datetime"
+			"type": "text"
 		},
 		{
 			"name": "url",
 			"value": "{{url}}",
-			"type": "text"
+			"type": "multitext"
 		},
 		{
 			"name": "tags",
 			"value": "source/reddit",
-			"type": "text"
+			"type": "multitext"
 		},
 		{
 			"name": "title",
@@ -32,7 +32,7 @@
 		{
 			"name": "published",
 			"value": "{{selector:shreddit-post?created-timestamp|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
-			"type": "datetime"
+			"type": "date"
 		},
 		{
 			"name": "subreddit",

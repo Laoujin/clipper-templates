@@ -21,8 +21,8 @@
 		},
 		{
 			"name": "rating",
-			"value": "{{selector:[data-testid=\\\"hero-rating-bar__user-rating__score\\\"] span|unique}}",
-			"type": "number"
+			"value": "{{selector:[data-testid=\\\"hero-rating-bar__user-rating__score\\\"] span|unique|first}}",
+			"type": "text"
 		},
 		{
 			"name": "scoreImdb",
@@ -53,10 +53,15 @@
 			"name": "tags",
 			"value": "movie",
 			"type": "multitext"
+		},
+		{
+			"name": "last",
+			"value": "",
+			"type": "date"
 		}
 	],
 	"triggers": [
-		"/^https:\\/\\/www\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/"
+		"/^https:\\/\\/(www|m)\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/"
 	],
 	"noteNameFormat": "{{schema:name}}",
 	"path": "References"

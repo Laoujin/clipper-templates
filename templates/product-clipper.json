@@ -2,8 +2,6 @@
 	"schemaVersion": "0.1.0",
 	"name": "Product",
 	"behavior": "create",
-	"noteNameFormat": "{{title}}",
-	"path": "References",
 	"noteContentFormat": "{{description}}",
 	"properties": [
 		{
@@ -44,5 +42,7 @@
 	],
 	"triggers": [
 		"schema:@Product"
-	]
+	],
+	"noteNameFormat": "{{title}}",
+	"path": "References"
 }

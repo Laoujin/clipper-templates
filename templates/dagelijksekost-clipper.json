@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "DagelijkseKost",
 	"behavior": "create",
-	"noteContentFormat": "# Directions\n{{selectorHtml:[data-testid=\"instructions-web\"]|first|replace:\"/<h3[^>]*>([^<]+)<\\/h3>/g\":\"## $1\\n\"|replace:\"/<span[^>]*MuiTypography-bodySmall[^>]*>([^<]+)<\\/span>/g\":\"<small>$1</small>\\n\"|replace:\"/<span[^>]*MuiTypography-titleLarge[^>]*>([^<]+)<\\/span>/g\":\"\"|replace:\"/<span[^>]*MuiTypography-bodyLarge[^>]*>([^<]+)<\\/span>/g\":\"$1\\n\\n\"|strip_tags}}\n\n# Ingredients\n{{selectorHtml:#ingredients-tabpanel-0 [data-testid=\"recipe-ingredient\"]|replace:\"/MuiTypography-bodyLarge[^>]*>([^<]+)</span>/g\":\"MuiTypography-bodyLarge\\\">$1: </span>\"|strip_tags|list}}\n\n# Notes\n- \n\n# How it looks\n{{meta:property:og:image|image:\"Poster\"}}\n",
+	"noteContentFormat": "# Notes\n- \n\n# Directions\n{{selectorHtml:[data-testid=\"instructions-web\"]|first|replace:\"/<h3[^>]*>([^<]+)<\\/h3>/g\":\"## $1\\n\"|replace:\"/<span[^>]*MuiTypography-bodySmall[^>]*>([^<]+)<\\/span>/g\":\"<small>$1</small>\\n\"|replace:\"/<span[^>]*MuiTypography-titleLarge[^>]*>([^<]+)<\\/span>/g\":\"\"|replace:\"/<span[^>]*MuiTypography-bodyLarge[^>]*>([^<]+)<\\/span>/g\":\"$1\\n\\n\"|strip_tags}}\n\n# Ingredients\n{{selectorHtml:#ingredients-tabpanel-0 [data-testid=\"recipe-ingredient\"]|replace:\"/MuiTypography-bodyLarge[^>]*>([^<]+)</span>/g\":\"MuiTypography-bodyLarge\\\">$1: </span>\"|strip_tags|list}}\n\n# How it looks\n{{meta:property:og:image|image:\"Poster\"}}\n",
 	"properties": [
 		{
 			"name": "categories",
@@ -57,6 +57,11 @@
 		{
 			"name": "created",
 			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "last",
+			"value": "",
 			"type": "date"
 		}
 	],
