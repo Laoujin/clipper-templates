@@ -1,6 +1,6 @@
 {
 	"schemaVersion": "0.1.0",
-	"name": "IMDB",
+	"name": "IMDB Movie",
 	"behavior": "create",
 	"noteContentFormat": "{{schema:url|link:\"Open IMDB\"}}\n\n{{schema:image|image:\"Poster\"}}\n",
 	"properties": [
@@ -15,8 +15,18 @@
 			"type": "multitext"
 		},
 		{
+			"name": "year",
+			"value": "{{schema:datePublished|split:\\\"-\\\"|slice:0,1}}",
+			"type": "number"
+		},
+		{
 			"name": "director",
 			"value": "{{selector:[data-testid=\\\"title-pc-principal-credit\\\"]:first-child a|unique|wikilink|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "cast",
+			"value": "{{selector:[data-testid=\\\"title-pc-principal-credit\\\"]:nth-child(3) div a|unique|wikilink|join}}",
 			"type": "multitext"
 		},
 		{
@@ -30,19 +40,9 @@
 			"type": "number"
 		},
 		{
-			"name": "cast",
-			"value": "{{selector:[data-testid=\\\"title-pc-principal-credit\\\"]:nth-child(3) div a|unique|wikilink|join}}",
-			"type": "multitext"
-		},
-		{
 			"name": "plot",
 			"value": "{{schema:description}}",
 			"type": "text"
-		},
-		{
-			"name": "year",
-			"value": "{{schema:datePublished|split:\\\"-\\\"|slice:0,1}}",
-			"type": "number"
 		},
 		{
 			"name": "created",
@@ -61,7 +61,8 @@
 		}
 	],
 	"triggers": [
-		"/^https:\\/\\/(www|m)\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/"
+		"/^https:\\/\\/(www|m)\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/",
+		"schema:@Movie"
 	],
 	"noteNameFormat": "{{schema:name}}",
 	"path": "References"

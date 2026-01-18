@@ -1,0 +1,69 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "IMDB Series",
+	"behavior": "create",
+	"noteContentFormat": "{{schema:url|link:\"Open IMDB\"}}\n\n{{schema:image|image:\"Poster\"}}\n",
+	"properties": [
+		{
+			"name": "categories",
+			"value": "[[Series]]",
+			"type": "multitext"
+		},
+		{
+			"name": "genre",
+			"value": "{{schema:genre|wikilink|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "year",
+			"value": "{{schema:datePublished|split:\\\"-\\\"|slice:0,1}}",
+			"type": "number"
+		},
+		{
+			"name": "creators",
+			"value": "{{selector:[data-testid=\\\"title-pc-principal-credit\\\"]:first-child a|unique|wikilink|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "cast",
+			"value": "{{selector:[data-testid=\\\"title-pc-principal-credit\\\"]:nth-child(2) div a|unique|wikilink|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "rating",
+			"value": "{{selector:[data-testid=\\\"hero-rating-bar__user-rating__score\\\"] span|unique|first}}",
+			"type": "text"
+		},
+		{
+			"name": "scoreImdb",
+			"value": "{{schema:aggregateRating.ratingValue}}",
+			"type": "number"
+		},
+		{
+			"name": "plot",
+			"value": "{{schema:description}}",
+			"type": "text"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tags",
+			"value": "serie",
+			"type": "multitext"
+		},
+		{
+			"name": "last",
+			"value": "",
+			"type": "date"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/(www|m)\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/",
+		"schema:@TVSeries"
+	],
+	"noteNameFormat": "{{schema:name}}",
+	"path": "References"
+}
